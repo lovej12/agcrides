@@ -100,7 +100,11 @@ alter table broadcasts enable row level security;
 -- (Policies use auth.uid(); admins bypass via service role on server. Add granular
 -- policies in Supabase dashboard per role — starter open-read for demo below, tighten pre-prod.)
 -- Prototype starter (replace before prod): allow anon read on public live tables
-create policy if not exists "public read routes" on routes for select using (true);
-create policy if not exists "public read stops" on stops for select using (true);
-create policy if not exists "public read buses" on buses for select using (true);
-create policy if not exists "public read live" on bus_live for select using (true);
+drop policy if exists "public read routes" on routes;
+drop policy if exists "public read stops" on stops;
+drop policy if exists "public read buses" on buses;
+drop policy if exists "public read live" on bus_live;
+create policy "public read routes" on routes for select using (true);
+create policy "public read stops" on stops for select using (true);
+create policy "public read buses" on buses for select using (true);
+create policy "public read live" on bus_live for select using (true);
