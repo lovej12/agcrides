@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Hallmark · pre-emit critique: P5 H4 E5 S4 R5 V5 */
+/* AGCRIDES tokens — Uber minimal. Locked: no mid-render hex. Use vars. */
+:root {
+  --color-ink: #000000;
+  --color-paper: #ffffff;
+  --color-card: #ffffff;
+  --color-muted: #545454;
+  --color-cta: #000000;
+  --color-go: #06c167;
+  --color-warn: #c77700;
+  --color-alert: #d64545;
+  --color-bus: #f5a100;
+  --radius-sheet: 20px;
+  --radius-card: 12px;
+}
+
+.dark {
+  --color-ink: #e8ecf4;
+  --color-paper: #0e1420;
+  --color-card: #18202e;
+  --color-muted: #98a2b8;
+  --color-cta: #ffffff;
+}
+
+html,
+body {
+  overflow-x: clip;
+  background: var(--color-paper);
+  color: var(--color-ink);
+}
+
+body {
+  font-family: Inter, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.5;
+  max-width: 70ch;
+  margin-inline: auto;
+}
+
+/* Map canvas full-bleed */
+.map-wrap {
+  max-width: none;
+}
+
+h1,
+h2,
+h3 {
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  overflow-wrap: anywhere;
+  min-width: 0;
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-go);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
