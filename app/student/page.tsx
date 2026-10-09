@@ -70,11 +70,11 @@ export default function StudentPage() {
                 <EmptyState title="No live ETA" body="Bus is offline. Showing schedule, not live." />
               )}
 
-              <div className="mt-3 flex gap-2">
-                <label className="text-sm flex items-center gap-2">
+              <div className="mt-3 flex flex-wrap gap-2">
+                <label className="text-sm flex items-center gap-2 min-w-0 flex-1 basis-40">
                   Bus
                   <select
-                    className="border rounded-[12px] px-2 py-2 min-h-[44px]"
+                    className="border rounded-[12px] px-2 py-2 min-h-[44px] min-w-0 flex-1"
                     value={busIdx}
                     onChange={(e) => setBusIdx(Number(e.target.value))}
                   >
@@ -83,10 +83,10 @@ export default function StudentPage() {
                     ))}
                   </select>
                 </label>
-                <label className="text-sm flex items-center gap-2">
+                <label className="text-sm flex items-center gap-2 min-w-0 flex-1 basis-40">
                   My stop
                   <select
-                    className="border rounded-[12px] px-2 py-2 min-h-[44px]"
+                    className="border rounded-[12px] px-2 py-2 min-h-[44px] min-w-0 flex-1"
                     value={stopIdx}
                     onChange={(e) => setStopIdx(Number(e.target.value))}
                   >

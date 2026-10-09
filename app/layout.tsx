@@ -22,19 +22,20 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           Skip to content
         </a>
         <header className="sticky top-0 z-40 bg-[var(--color-paper)] border-b">
-          <nav className="flex items-center justify-between px-4 h-14 max-w-3xl mx-auto" aria-label="Roles">
-            <a href="/" className="font-semibold tracking-tight text-lg">
+          <nav className="flex items-center justify-between px-4 h-14 max-w-5xl mx-auto" aria-label="Roles">
+            <a href="/" className="flex items-center gap-2 font-semibold tracking-tight text-lg min-h-[44px]">
+              <img src="/logo.svg" alt="" width={28} height={28} aria-hidden />
               AGCRIDES
             </a>
-            <div className="flex gap-1 text-sm">
+            <div className="hidden sm:flex gap-1 text-sm">
               <a className="px-3 py-2 rounded-[12px] min-h-[44px] inline-flex items-center hover:bg-black/5" href="/student">Student</a>
               <a className="px-3 py-2 rounded-[12px] min-h-[44px] inline-flex items-center hover:bg-black/5" href="/driver">Driver</a>
               <a className="px-3 py-2 rounded-[12px] min-h-[44px] inline-flex items-center hover:bg-black/5" href="/admin">Admin</a>
             </div>
           </nav>
         </header>
-        <main id="main" className="pb-24">{children}</main>
-        <nav className="fixed bottom-0 inset-x-0 z-40 bg-[var(--color-paper)] border-t" aria-label="Primary">
+        <main id="main" className="pb-nav">{children}</main>
+        <nav className="fixed bottom-0 inset-x-0 z-40 bg-[var(--color-paper)] border-t" style={{ paddingBottom: "env(safe-area-inset-bottom)" }} aria-label="Primary">
           <div className="grid grid-cols-3 max-w-3xl mx-auto">
             <a href="/student" className="py-3 min-h-[44px] text-center text-sm font-medium">Student</a>
             <a href="/driver" className="py-3 min-h-[44px] text-center text-sm font-medium">Driver</a>

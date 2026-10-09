@@ -37,8 +37,16 @@ body {
   font-family: Inter, system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   line-height: 1.5;
-  max-width: 70ch;
-  margin-inline: auto;
+}
+
+/* Prose line length — apply per block, never on body (body hosts full-bleed map + tables) */
+.prose {
+  max-width: 65ch;
+}
+
+/* Fixed bottom nav clearance + notch safe area */
+.pb-nav {
+  padding-bottom: max(6rem, calc(5rem + env(safe-area-inset-bottom)));
 }
 
 /* Map canvas full-bleed */

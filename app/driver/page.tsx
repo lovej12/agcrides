@@ -128,7 +128,7 @@ export default function DriverPage() {
             <option>BUS 02</option>
           </select>
         </label>
-        <div className="mt-3 flex gap-2 text-sm">
+        <div className="mt-3 flex flex-wrap gap-2 text-sm">
           <Chip tone="go">{gps}</Chip>
           <Chip>queue {queue.length}</Chip>
           <Chip>{lastUpload ? `uploaded ${new Date(lastUpload).toLocaleTimeString("en-IN")}` : "not uploaded yet"}</Chip>

@@ -62,14 +62,14 @@ export default function AdminPage() {
         <h2 className="font-semibold">Alerts</h2>
         <div className="space-y-2 mt-2">
           {alerts.map((a: any) => (
-            <div key={a.id} className="flex items-center justify-between border rounded-[12px] p-2 text-sm">
-              <span><b>{a.bus_id}</b> · {a.type} · {a.message}</span>
+            <div key={a.id} className="flex flex-wrap items-center justify-between gap-2 border rounded-[12px] p-2 text-sm">
+              <span className="min-w-0"><b>{a.bus_id}</b> · {a.type} · {a.message}</span>
               <Button onClick={async () => { await fetch(`/api/v1/alerts?id=${a.id}`, { method: "DELETE" }); loadAlerts(); }}>Resolve</Button>
             </div>
           ))}
           {!alerts.length && <p className="text-sm text-[#545454]">No active alerts.</p>}
         </div>
-        <div className="flex gap-2 mt-3">
+        <div className="flex flex-wrap gap-2 mt-3">
           <Button onClick={async () => { await fetch("/api/v1/alerts", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ bus_id: "BUS 01", type: "deviation", message: "Left route GT Road >150m" }) }); loadAlerts(); }}>Trigger deviation</Button>
           <Button onClick={async () => { await fetch("/api/v1/alerts", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ bus_id: "BUS 02", type: "delay", message: "7 min late: traffic" }) }); loadAlerts(); }} className="!bg-white !text-black border">Trigger traffic delay</Button>
         </div>
@@ -77,8 +77,8 @@ export default function AdminPage() {
 
       <Card>
         <h2 className="font-semibold">Broadcast</h2>
-        <div className="flex gap-2 mt-2">
-          <input value={broadcast} onChange={(e) => setBroadcast(e.target.value)} placeholder="Buses delayed due to rain…" className="flex-1 border rounded-[12px] px-3 py-3 min-h-[44px]" />
+        <div className="flex flex-wrap gap-2 mt-2">
+          <input value={broadcast} onChange={(e) => setBroadcast(e.target.value)} placeholder="Buses delayed due to rain…" className="flex-1 basis-48 min-w-0 border rounded-[12px] px-3 py-3 min-h-[44px]" />
           <Button onClick={async () => { await fetch("/api/v1/broadcasts", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ title: "AGC update", body: broadcast }) }); setBroadcast(""); alert("Broadcast sent (in-app MVP)"); }}>Send</Button>
         </div>
       </Card>
